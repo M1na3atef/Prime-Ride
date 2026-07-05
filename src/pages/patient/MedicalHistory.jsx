@@ -51,27 +51,14 @@ function MedicalHistory() {
     };
 
     useEffect(() => {
-
         const loadHistory = async () => {
-
             if (!currentUser) return;
-
-            const data = await getMedicalHistory(
-
-                currentUser.uid
-
-            );
-
+            const data = await getMedicalHistory( currentUser.uid );
             if (data) {
-
                 setHistory(data);
-
             }
-
         };
-
         loadHistory();
-
     }, [currentUser]);
 
     const handleSave = async () => {

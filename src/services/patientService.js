@@ -2,20 +2,13 @@ import { ref, set, get, update } from "firebase/database";
 import { db } from "@/firebase/firebase";
 
 export const createPatientProfile = async (user) => {
-
     const userRef = ref(db, `users/${user.uid}`);
-
     const snapshot = await get(userRef);
-
-    // لو المستخدم موجود بالفعل
     if (snapshot.exists()) {
         return;
     }
-
-    // لو أول مرة
     await set(userRef, {
         email: user.email,
-
         patient: {
             fullName: "",
             age: "",
@@ -23,16 +16,13 @@ export const createPatientProfile = async (user) => {
             bloodType: "",
             emergencyContact: "",
         },
-
         medicalHistory: {
             diseases: "",
             allergies: "",
             medications: "",
             notes: "",
         },
-
     });
-
 };
 // Get all user data
 export const getUserData = async (uid) => {
@@ -64,11 +54,9 @@ export const updatePatientProfile = async (uid, data) => {
 // Get medical history
 export const getMedicalHistory = async (uid) => {
     const snapshot = await get(ref(db, `users/${uid}/medicalHistory`));
-
     if (snapshot.exists()) {
         return snapshot.val();
     }
-
     return null;
 };
 

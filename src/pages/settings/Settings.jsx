@@ -33,30 +33,18 @@ function Settings() {
 
     const [userData, setUserData] = useState(null);
     useEffect(() => {
-
         const loadUser = async () => {
-
             if (!currentUser) return;
-
             const data = await getUserData(
-
                 currentUser.uid
-
             );
-
             setUserData(data);
-
         };
-
         loadUser();
-
     }, [currentUser]);
     const handleLogout = async () => {
-
         await logoutUser();
-
         navigate("/login");
-
     };
     return (
 

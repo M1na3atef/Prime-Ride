@@ -17,19 +17,12 @@ function Dashboard() {
     const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-
         const loadData = async () => {
-
             if (!currentUser) return;
-
             const data = await getUserData(currentUser.uid);
-
             setUserData(data);
-
         };
-
         loadData();
-
     }, [currentUser]);
 
     return (

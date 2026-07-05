@@ -18,18 +18,12 @@ function Control() {
     const [currentDirection, setCurrentDirection] = useState("Stop");
 
     const handleMove = async (direction) => {
-
         setCurrentDirection(direction);
-
         await moveRobot(direction);
-
     };
     const handleStop = async () => {
-
         setCurrentDirection("Stop");
-
         await moveRobot("Stop");
-
     };
     return (
 

@@ -87,27 +87,16 @@ function PatientInfo() {
     };
 
     useEffect(() => {
-
         const loadPatient = async () => {
-
             if (!currentUser) return;
-
             const data = await getPatientProfile(
-
                 currentUser.uid
-
             );
-
             if (data) {
-
                 setPatient(data);
-
             }
-
         };
-
         loadPatient();
-
     }, [currentUser]);
     return (
 
@@ -328,12 +317,6 @@ function PatientInfo() {
                                     <SelectItem value="female">
 
                                         Female
-
-                                    </SelectItem>
-
-                                    <SelectItem value="other">
-
-                                        Other
 
                                     </SelectItem>
 

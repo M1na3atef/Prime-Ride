@@ -9,14 +9,11 @@
         Left: false,
         Right: false,
     };
-
     if (direction !== "Stop") {
         directions[direction] = true;
     }
-
     await update(
         ref(db, "Robot/Directions"),
-
         directions,
     );
     };
